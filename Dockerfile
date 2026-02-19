@@ -48,6 +48,4 @@ RUN pip install -e . --user --no-cache-dir \
   && mkdir /freqtrade/user_data/ \
   && freqtrade install-ui
 
-ENTRYPOINT ["freqtrade"]
-# Default to trade mode
 CMD ["sh", "-c", "freqtrade webserver --port $PORT --listen-ip-address 0.0.0.0"]
