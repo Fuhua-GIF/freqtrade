@@ -50,4 +50,4 @@ RUN pip install -e . --user --no-cache-dir \
 
 ENTRYPOINT ["freqtrade"]
 # Default to trade mode
-CMD [ "trade" ]
+CMD ["sh", "-c", "freqtrade webserver --port $PORT --listen-ip-address 0.0.0.0"]
