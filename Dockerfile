@@ -49,4 +49,4 @@ RUN pip install -e . --user --no-cache-dir \
   && freqtrade install-ui
 
 # Use proper command syntax with correct parameter names
-CMD ["sh", "-c", "freqtrade webserver --config /freqtrade/config.json --port $PORT --listen-ip-address 0.0.0.0"]
+CMD ["sh", "-c", "freqtrade webserver"]
