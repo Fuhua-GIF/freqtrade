@@ -43,10 +43,11 @@ COPY --from=python-deps --chown=ftuser:ftuser /home/ftuser/.local /home/ftuser/.
 USER ftuser
 # Install and execute
 COPY --chown=ftuser:ftuser . /freqtrade/
+COPY --chown=ftuser:ftuser config.json /freqtrade/
 
 RUN pip install -e . --user --no-cache-dir \
   && mkdir /freqtrade/user_data/ \
   && freqtrade install-ui
 
 # Use proper command syntax with correct parameter names
-CMD ["sh", "-c", "freqtrade webserver --config /freqtrade/config.json"]
+CMD ["sh", "-c", "freqtrade webserver --config /freqtrade/config.json --port $PORT --listen-ip-address 0.0.0.0"]
